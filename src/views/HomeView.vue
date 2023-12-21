@@ -7,7 +7,7 @@
       <button>Import</button>
       <button>Export</button>
     </div>
-    <button class="logout" @click="Logout">Logout</button>
+      <button class="btn logout" @click="Logout">Logout</button>
   </div>
 </template>
 
@@ -70,9 +70,17 @@ export default {
   margin-bottom: 10px;
 }
 
-.logout {
+.btn.logout {
   position: relative;
-  left: 350px;
-  bottom: 250px;
+  left: 340px;
+  bottom: 270px;
+  width: 100px;
+  padding: 5px;
+  margin: 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #2f4960;
 }
 </style>
