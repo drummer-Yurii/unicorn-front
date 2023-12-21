@@ -5,14 +5,24 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
   },
   {
     path: '/about',
     name: 'about',
-    component: () => import('../views/AboutView.vue')
-  }
-]
+    component: () => import('../views/AboutView.vue'),
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/LoginView.vue'),
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('../views/RegisterView.vue'),
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
