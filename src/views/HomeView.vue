@@ -43,7 +43,7 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  position: absolute;
+  position: relative;
   display: block;
   text-align: center;
   width: 100%;
@@ -55,8 +55,8 @@ export default {
 }
 
 .btn button {
-  display: block;
-  margin: 30px auto;
+  display: inline-block;
+  margin: 110px 10px auto;
   width: 150px;
   padding: 10px;
   border-radius: 8px;
@@ -71,9 +71,9 @@ export default {
 }
 
 .btn.logout {
-  position: relative;
-  left: 340px;
-  bottom: 270px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
   width: 100px;
   padding: 5px;
   margin: 10px;
@@ -82,5 +82,6 @@ export default {
   font-weight: 500;
   cursor: pointer;
   background-color: #2f4960;
+  border-radius: 8px;
 }
 </style>
