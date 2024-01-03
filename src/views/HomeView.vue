@@ -7,22 +7,22 @@
       <button>Import</button>
       <button>Export</button>
     </div>
-      <button class="btn logout" @click="Logout">Logout</button>
+    <div class="logout" @click="Logout">Logout</div>
   </div>
 </template>
 
 <script>
-import { ref, onBeforeMount } from 'vue';
-import firebase from 'firebase/compat/app';
+import { ref, onBeforeMount } from "vue";
+import firebase from "firebase/compat/app";
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   setup() {
-    const name = ref('');
+    const name = ref("");
 
     onBeforeMount(() => {
       const user = firebase.auth().currentUser;
       if (user) {
-        name.value = user.email.split('@')[0];
+        name.value = user.email.split("@")[0];
       }
     });
 
@@ -30,7 +30,7 @@ export default {
       firebase
         .auth()
         .signOut()
-        .then(() => console.log('Signed out'))
+        .then(() => console.log("Signed out"))
         .catch((err) => alert(err.message));
     };
     return {
@@ -47,9 +47,11 @@ export default {
   display: block;
   text-align: center;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
+  height: 600px;
   padding: 50px 30px;
-  background-image: linear-gradient(to bottom, #00bc7e, #108775);
+  background-size: cover;
+  background-image: url("../assets/backgroundHome.jpg");
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
 }
@@ -70,18 +72,20 @@ export default {
   margin-bottom: 10px;
 }
 
-.btn.logout {
+.logout {
   position: absolute;
   right: 0px;
   top: 0px;
   width: 100px;
   padding: 5px;
   margin: 10px;
-  color: #fff;
+  color: #271b80;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  background-color: #2f4960;
-  border-radius: 8px;
+}
+.logout:hover {
+  color: #000;
+  transition: 0.5s;
 }
 </style>
