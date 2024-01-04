@@ -2,8 +2,8 @@
   <form @submit.prevent="Login">
     <h1>Login</h1>
     <div class="form-group">
-      <label>Email: </label>
-      <input type="email" placeholder="Email" v-model="email" />
+      <label>Your name: </label>
+      <input type="text" placeholder="Enter Your name" v-model="username" />
     </div>
     <div class="form-group">
       <label>Password: </label>
@@ -17,28 +17,34 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import firebase from 'firebase/compat/app';
+import axios from 'axios';
 
 export default {
-  setup() {
-    const email = ref('');
-    const password = ref('');
-
-    const Login = () => {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(email.value, password.value)
-        .then((data) => console.log(data))
-        .catch((err) => alert(err.message));
-    };
-
+  name: 'LoginView',
+  data() {
     return {
-      Login,
-      email,
-      password,
-    };
+      username: '',
+      password: ''
+    }
   },
+  methods: {
+    Login() {
+      axios
+        .post(`http://127.0.0.1:8000/api/login/`, {
+          'username': this.username,
+          'password': this.password
+        })
+        .then(response => {
+          this.setLogined(response.data.token);
+          this.$router.push('/');
+        })
+        .catch(err => {console.error(err)})
+    },
+    setLogined(token) {
+      console.log(token);
+      localStorage.setItem('token', token);
+    }
+  }
 };
 </script>
 

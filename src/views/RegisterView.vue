@@ -2,8 +2,8 @@
   <form @submit.prevent="Register">
     <h1>Register</h1>
     <div class="form-group">
-      <label>Email: </label>
-      <input type="email" placeholder="Email" v-model="email" />
+      <label>Your name: </label>
+      <input type="text" placeholder="Enter Your name" v-model="username" />
     </div>
     <div class="form-group">
       <label>Password: </label>
@@ -17,28 +17,33 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import firebase from 'firebase/compat/app';
+import axios from 'axios';
 export default {
-  setup() {
-    const email = ref('');
-    const password = ref('');
-
-    const Register = () => {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(email.value, password.value)
-        .then((user) => {
-          alert(user);
-        })
-        .catch((err) => alert(err.message));
-    };
+  name: 'RegisterView',
+  data() {
     return {
-      Register,
-      email,
-      password,
-    };
+      username: '',
+      password: '',
+    }
   },
+  methods: {
+    Register() {
+      axios
+        .post(`http://127.0.0.1:8000/api/signup/`, {
+          headers: { 'Content-type': 'application/json' },
+          'username': this.username,
+          'password': this.password,
+        })
+        .then((response) => {
+          console.log(response);
+          this.$router.push('/login');
+        })
+        .catch((err) => {
+          console.log(err);
+          this.err = err;
+        });
+    }
+  }
 };
 </script>
 
