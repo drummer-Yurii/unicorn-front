@@ -1,11 +1,12 @@
 <template>
   <div class="home">
-    <h1>Welcome <br> Before add and convert files <br> Please Login or Register</h1>
+    <h1>Welcome</h1>
     <br />
     <div class="btn">
-      <button @click="register">REGISTER</button>
-      <button @click="login">LOGIN</button>
+      <button>Import</button>
+      <button>Export</button>
     </div>
+      <button class="btn logout" @click="Logout">Logout</button>
   </div>
 </template>
 
@@ -13,13 +14,11 @@
 export default {
   name: 'HomeView',
   methods: {
-    register() {
-      this.$router.push('/register');
+    Logout() {
+      localStorage.removeItem('token');
+      this.$router.push('/')
     },
-    login() {
-      this.$router.push('/login');
-    }
-  }
+  },
 };
 </script>
 

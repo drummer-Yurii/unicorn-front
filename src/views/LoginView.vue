@@ -36,7 +36,7 @@ export default {
         })
         .then(response => {
           this.setLogined(response.data.token);
-          this.$router.push('/');
+          this.$router.push('/main');
         })
         .catch(err => {console.error(err)})
     },
