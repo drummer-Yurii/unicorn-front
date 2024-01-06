@@ -13,14 +13,16 @@
     </span>
     <br />
     <div class="btn">
-      <button @click="register">REGISTER</button>
-      <button @click="login">LOGIN</button>
+      <BaseButton @click="register">REGISTER</BaseButton>
+      <BaseButton @click="login">LOGIN</BaseButton>
     </div>
   </div>
 </template>
 
 <script>
+import BaseButton from '../components/BaseButton.vue';
 export default {
+  components: { BaseButton },
   name: "HomeView",
   methods: {
     register() {
@@ -62,25 +64,5 @@ export default {
 .greeting {
   margin: 50px 0;
   font-size: 40px;
-}
-
-.btn button {
-  display: inline-block;
-  margin: 50px 30px auto;
-  width: 150px;
-  padding: 10px;
-  border-radius: 8px;
-  border: 0;
-  background-color: #c9d5fd;
-  color: #271b80;
-  font-size: 20px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-.btn button:hover {
-  background-color: #fcf3b5;
-  transition: 0.5s;
 }
 </style>

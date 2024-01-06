@@ -10,26 +10,31 @@
     <h1 class="greeting">Welcome</h1>
     <br />
     <div class="btn">
-      <button>Import</button>
-      <button>Export</button>
+      <FileUpload />
+      <FileExport />
     </div>
     <div class="info">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+      voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     </div>
   </div>
 </template>
 
 <script>
+import FileExport from '../components/FileExport.vue';
+import FileUpload from '../components/FileUpload.vue';
 export default {
-  name: "HomeView",
+  name: 'HomeView',
+  components: {
+    FileExport,
+    FileUpload,
+  },
   methods: {
     Logout() {
-      localStorage.removeItem("token");
-      this.$router.push("/");
+      localStorage.removeItem('token');
+      this.$router.push('/');
     },
   },
 };
@@ -44,7 +49,7 @@ export default {
   max-width: 1000px;
   min-height: 600px;
   background-size: cover;
-  background-image: url("../assets/backgroundHome.jpg");
+  background-image: url('../assets/backgroundHome.jpg');
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
 }
@@ -67,26 +72,9 @@ export default {
   font-size: 40px;
 }
 
-.btn button {
-  display: inline-block;
-  margin: 50px 30px auto;
-  width: 150px;
-  padding: 10px;
-  border-radius: 8px;
-  border: 0;
-  background-color: #c9d5fd;
-  color: #271b80;
-  font-size: 20px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-bottom: 10px;
-  text-transform: uppercase;
+.btn {
+  display: flex;
 }
-.btn button:hover {
-  background-color: #fcf3b5;
-  transition: 0.5s;
-}
-
 .logout {
   width: 100px;
   border: 0;
