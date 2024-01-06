@@ -3,8 +3,7 @@
 </template>
 <script>
 export default {
-  setup() {
-  },
+  setup() {},
 };
 </script>
 
@@ -14,6 +13,7 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-family: "Fira sans", sans-serif;
+  font-size: 18px;
 }
 
 body {
