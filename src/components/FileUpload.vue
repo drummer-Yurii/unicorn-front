@@ -4,28 +4,34 @@
       <label>
         <input type="file" id="file" ref="file" />
       </label>
-      <BaseButton @click="uploadFile()">Import</BaseButton>
     </div>
+    <BaseButton @click="uploadFile()" class="import">Import</BaseButton>
   </div>
 </template>
 
 <script>
-import BaseButton from './BaseButton.vue';
+import BaseButton from "./BaseButton.vue";
 export default {
   components: { BaseButton },
   data() {
     return {
-      file: '',
+      file: "",
     };
   },
   methods: {
-    uploadFile: function () {
-      
-    },
+    uploadFile: function () {},
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+.import {
+  margin-left: 95px;
+}
 </style>

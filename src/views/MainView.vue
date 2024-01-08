@@ -14,27 +14,28 @@
       <FileExport />
     </div>
     <div class="info">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
     </div>
   </div>
 </template>
 
 <script>
-import FileExport from '../components/FileExport.vue';
-import FileUpload from '../components/FileUpload.vue';
+import FileExport from "../components/FileExport.vue";
+import FileUpload from "../components/FileUpload.vue";
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   components: {
     FileExport,
     FileUpload,
   },
   methods: {
     Logout() {
-      localStorage.removeItem('token');
-      this.$router.push('/');
+      localStorage.removeItem("token");
+      this.$router.push("/");
     },
   },
 };
@@ -49,7 +50,7 @@ export default {
   max-width: 1000px;
   min-height: 600px;
   background-size: cover;
-  background-image: url('../assets/backgroundHome.jpg');
+  background-image: url("../assets/backgroundHome.jpg");
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
 }
@@ -74,6 +75,7 @@ export default {
 
 .btn {
   display: flex;
+  justify-content: center;
 }
 .logout {
   width: 100px;
