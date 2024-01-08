@@ -5,7 +5,7 @@
         <input type="file" id="file" ref="file" />
       </label>
     </div>
-    <BaseButton @click="uploadFile()">Import</BaseButton>
+    <BaseButton @click="uploadFile()" class="import">Import</BaseButton>
   </div>
 </template>
 
@@ -30,5 +30,8 @@ export default {
   flex-direction: column;
   justify-content: flex-end;
   margin-top: 10px;
+}
+.import {
+  margin-left: 95px;
 }
 </style>

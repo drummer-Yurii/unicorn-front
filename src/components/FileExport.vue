@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <input v-show="isVisible" type="text" placeholder="add token" />
-    <BaseButton @click="sendFile">Export</BaseButton>
+    <BaseButton @click="sendFile" class="export">Export </BaseButton>
   </div>
 </template>
 
@@ -30,5 +30,8 @@ export default {
   flex-direction: column;
   justify-content: flex-end;
   margin-top: 10px;
+}
+.export {
+  margin-left: 95px;
 }
 </style>
