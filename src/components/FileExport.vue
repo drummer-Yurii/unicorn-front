@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <input v-show="isVisible" type="text" placeholder="add token" />
+    <input v-show="isVisible" type="text" placeholder="add token" v-model="token" />
     <BaseButton @click="sendFile" class="export">Export </BaseButton>
   </div>
 </template>
@@ -13,12 +13,18 @@ export default {
   data() {
     return {
       isVisible: false,
+      token: '',
+      file: '',
     };
   },
   methods: {
+    addFile() {
+  
+    },
+
     sendFile() {
       this.isVisible = !this.isVisible;
-    },
+    }
   },
 };
 </script>

@@ -94,6 +94,7 @@ form input:not([type="submit"]) {
   width: 100%;
   padding: 15px;
   border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
   transition: 0.4s;
   color: #222;
