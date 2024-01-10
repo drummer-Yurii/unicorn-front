@@ -10,16 +10,37 @@
 </template>
 
 <script>
-import BaseButton from "./BaseButton.vue";
+import BaseButton from './BaseButton.vue';
 export default {
   components: { BaseButton },
   data() {
     return {
-      file: "",
+      file: '',
     };
   },
   methods: {
-    uploadFile: function () {},
+    uploadFile() {
+      this.file = this.$refs.file.files[0];
+      let formData = new FormData();
+      formData.append('file', this.file);
+      this.$refs.file.value = '';
+      this.axios
+        .post('http://127.0.0.1:8000/api/convert/', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then((response) => {
+          if (!response.data) {
+            alert('File not uploaded.');
+          } else {
+            alert('File uploaded successfully.');
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
