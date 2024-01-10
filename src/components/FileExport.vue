@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <input v-show="isVisible" type="text" placeholder="add token" v-model="token" />
     <input
       v-show="isVisible"
       class="token"
       type="text"
       placeholder="add token"
+      v-model="token"
     />
     <BaseButton @click="sendFile" class="export">Export </BaseButton>
   </div>
