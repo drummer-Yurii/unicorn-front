@@ -30,8 +30,25 @@ export default {
   flex-direction: column;
   justify-content: flex-end;
   margin-top: 10px;
+  padding-right: 20px;
 }
 .import {
   margin-left: 95px;
+}
+#file {
+  background: white;
+  color: #271b80;
+  border: 3px solid #c9d5fd;
+  border-radius: 10px;
+  width: 300px;
+  outline: none;
+}
+
+::-webkit-file-upload-button {
+  cursor: pointer;
+  background: #c9d5fd;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
 }
 </style>
