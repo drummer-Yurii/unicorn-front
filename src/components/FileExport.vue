@@ -1,12 +1,6 @@
 <template>
   <div class="container">
-    <input
-      v-show="isVisible"
-      class="token"
-      type="text"
-      placeholder="add token"
-      v-model="token"
-    />
+    <input v-show="isVisible" class="token" type="text" placeholder="add token" v-model="token" />
     <BaseButton @click="sendFile" class="export">Export </BaseButton>
   </div>
 </template>
@@ -24,12 +18,21 @@ export default {
     };
   },
   methods: {
-    addFile() {
-  
-    },
-
     sendFile() {
-      this.isVisible = !this.isVisible;
+      this.axios.get('http://127.0.0.1:8000/api/download/')
+      .then((response) => {
+        this.file = response.data
+      })
+      this.isVisible = true;
+      if (this.token === '') {
+        return; 
+      } else if (this.token && this.file !== '') {
+        this.sendToShop()
+      }
+      this.isVisible = false;
+    },
+    sendToShop() {
+      console.log("token",this.token, "file",this.file);
     }
   },
 };
