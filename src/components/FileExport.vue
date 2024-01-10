@@ -1,15 +1,12 @@
 <template>
   <div class="container">
-<<<<<<< HEAD
     <input v-show="isVisible" type="text" placeholder="add token" v-model="token" />
-=======
     <input
       v-show="isVisible"
       class="token"
       type="text"
       placeholder="add token"
     />
->>>>>>> 05b5b66d235c59f7af2090e5b5fd5cc8cc3cbdfc
     <BaseButton @click="sendFile" class="export">Export </BaseButton>
   </div>
 </template>
