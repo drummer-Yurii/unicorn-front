@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import BaseButton from "./BaseButton.vue";
+import BaseButton from './BaseButton.vue';
 export default {
   components: { BaseButton },
-  name: "FileExport",
+  name: 'FileExport',
   data() {
     return {
       isVisible: false,
@@ -19,21 +19,35 @@ export default {
   },
   methods: {
     sendFile() {
-      this.axios.get('http://127.0.0.1:8000/api/download/')
-      .then((response) => {
-        this.file = response.data
-      })
+      this.axios.get('http://127.0.0.1:8000/api/download/').then((response) => {
+        this.file = response.data;
+      });
       this.isVisible = true;
       if (this.token === '') {
-        return; 
+        return;
       } else if (this.token && this.file !== '') {
-        this.sendToShop()
+        this.sendToShop();
       }
       this.isVisible = false;
     },
     sendToShop() {
-      console.log("token",this.token, "file",this.file);
-    }
+      this.axios
+        .post(`http://127.0.0.1:8000/api/export-to-prom/`, {
+          auth_token: this.token,
+          file: this.file,
+        })
+        .then((response) => {
+          if (!response.data) {
+            alert('File not uploaded.');
+          } else {
+            alert('File uploaded successfully.');
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      this.token = '';
+    },
   },
 };
 </script>
